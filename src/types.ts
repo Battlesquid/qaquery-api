@@ -14,7 +14,7 @@ export interface SeasonEndpointJSON {
     }[]
 }
 
-export interface Query {
+export interface QaQuery {
     searchTerm: string,
     category: string,
     page: number,

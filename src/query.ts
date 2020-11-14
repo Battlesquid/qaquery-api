@@ -1,4 +1,4 @@
-import type { Query, SeasonEndpointJSON } from "./types"
+import type { QaQuery, SeasonEndpointJSON } from "./types"
 import fetch from "node-fetch"
 import { load } from "cheerio"
 import { unleak, unformat } from "./stringutil"
@@ -14,7 +14,7 @@ const getYearBound = async (): Promise<number> => {
     return years_end;
 }
 
-const scrapePage = async (url: string, query: Query) => {
+const scrapePage = async (url: string, query: QaQuery) => {
 
     const urls = [];
     const { wholeWord } = query;
@@ -63,7 +63,7 @@ const scrapePage = async (url: string, query: Query) => {
 }
 
 
-const queryCategory = async (query: Query, bound: number) => {
+const queryCategory = async (query: QaQuery, bound: number) => {
 
     const data: { [key: string]: any } = {};
     const { category, page, searchTerm } = query;
@@ -77,7 +77,7 @@ const queryCategory = async (query: Query, bound: number) => {
     return data;
 }
 
-export const search = async (query: Query) => {
+export const search = async (query: QaQuery) => {
     const yearBound: number = await getYearBound();
     const result = await queryCategory(query, yearBound);
     return result;

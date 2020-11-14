@@ -1,3 +1,3 @@
-# qa-query backend
+# qaquery-backend
 
-Backend API for qa-query
+Backend API for qa-query.

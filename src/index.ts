@@ -2,15 +2,14 @@ import env from "dotenv";
 env.config({ path: "../.env" });
 import express from "express"
 
-import type { Query } from "./types"
+import type { QaQuery } from "./types"
 import { search } from "./query"
 
 const categories: string[] = ["VRC", "VEXU", "VIQC", "VAIC-HS", "VAIC-U", "RAD"];
 
 const app: express.Application = express();
 
-
-const resolveQuery = (searchTerm: any, category: any, page: any, wholeWord: any): Query => {
+const resolveQuery = (searchTerm: any, category: any, page: any, wholeWord: any): QaQuery => {
     return {
         searchTerm,
         category: category === "all" || categories.includes(category) ? category : "VRC",
