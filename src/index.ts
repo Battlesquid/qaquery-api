@@ -20,13 +20,23 @@ const resolveQuery = (searchTerm: any, category: any, page: any, wholeWord: any)
 
 app.get("/api/search", async (req, res) => {
 
+
     const { searchTerm, page, category, wholeWord } = req.query;
 
     const query = resolveQuery(searchTerm, category, page, wholeWord);
-    console.log("Query: ", query)
-    const data = await search(query)
 
-    res.send(data);
+    if (query.searchTerm.replace(" ", "").length === 0) {
+        res.send("Invalid searchTerm")
+    } else {
+        console.time("Query Time: ")
+        console.log("Query: ", query)
+        const data = await search(query)
+
+        res.send(data);
+        console.timeEnd("Query Time: ")
+    }
+
+
 })
 
-app.listen(process.env.PORT, () => console.log("Server Started."))
+app.listen(8080, () => console.log("Server Started."))

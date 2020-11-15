@@ -64,7 +64,6 @@ const scrapePage = async (url: string, query: QaQuery) => {
 
 
 const queryCategory = async (query: QaQuery, bound: number) => {
-
     const data: { [key: string]: any } = {};
     const { category, page, searchTerm } = query;
 
