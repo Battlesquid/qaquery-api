@@ -49,7 +49,7 @@ const scrapePage = async (url: string, query: QaQuery) => {
         const answer = unleak(unformat($('div.question .answer.approved .content-body').text()))
 
         if (wholeWord) {
-            const regex = RegExp(`\\b(${query.searchTerm.replace("+", " ")}\\b)`, "i");
+            const regex = RegExp(`\\b(${query.searchTerm.replace("+", " ")})\\b`, "i");
             console.log(regex)
             const validMatch = regex.test(title) || regex.test(question) || regex.test(answer);
             if (validMatch)
