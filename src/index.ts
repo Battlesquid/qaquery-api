@@ -19,8 +19,6 @@ const resolveQuery = (searchTerm: any, category: any, page: any, wholeWord: any)
 }
 
 app.get("/api/search", async (req, res) => {
-
-
     const { searchTerm, page, category, wholeWord } = req.query;
 
     const query = resolveQuery(searchTerm, category, page, wholeWord);
@@ -35,8 +33,6 @@ app.get("/api/search", async (req, res) => {
         res.send(data);
         console.timeEnd("Query Time: ")
     }
-
-
 })
 
 app.listen(8080, () => console.log("Server Started."))

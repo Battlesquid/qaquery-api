@@ -1,10 +1,13 @@
 # qaquery-api
 
-Backend API for qa-query.
+Backend API for qa-query. 
+<br>
 
+#### NOTE:
+This is pretty slow since the Q&As are fetched at runtime and span across *all* Q&As, so it may take a while to query results. This will be fixed in a later udpate.    
+<br>
 
 ## Running
-
 
 If you don't already have one, you need a [RobotEvents API Key](https://www.robotevents.com/api/v2) to properly retreive season data. Create a `.env` file in the root folder and add the following, replacing `<YOUR-KEY-HERE>` with your API key:
 
@@ -17,7 +20,6 @@ Once you've done that you can run `npm start` and the server will start on port 
 ## Requesting Data
 
 ### Endpoint: `/api/search`
-\
 `searchTerm`: string
 \
 The search term you want query the Q&As with.
